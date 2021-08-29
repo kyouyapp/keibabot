@@ -24,12 +24,13 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(
-        event.reply_token,
+
 
         load_url = "https://www.yahoo.co.jp/"
         html = requests.get(load_url)
         soup = BeautifulSoup(html.content, "html.parser")
         return_text = soup.find('title')
+        event.reply_token,
         TextSendMessage(text=return_text))
 
 
