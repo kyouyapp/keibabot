@@ -27,8 +27,8 @@ def handle_message(event):
 
 
         load_url = "https://www.yahoo.co.jp/"
-        html = requests.get(load_url)
-        soup = BeautifulSoup(html.content, "html.parser")
+        keiba_html = requests.get(load_url)
+        soup = BeautifulSoup(keiba_html.content, "html.parser")
         return_text = soup.find('title')
         event.reply_token,
         TextSendMessage(text=return_text))
