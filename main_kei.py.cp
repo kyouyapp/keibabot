@@ -10,6 +10,8 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
+import requests
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -42,7 +44,12 @@ def callback():
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+
+        #load_url = "https://race.netkeiba.com/race/result.html?race_id=202101020611"
+        #html = requests.get(load_url)
+        #soup = BeautifulSoup(html.content, "html.parser")
+        #return_text = soup.find_all('tr',class_='Tansho')
+        TextSendMessage(text="message"))
 
 
 if __name__ == "__main__":
